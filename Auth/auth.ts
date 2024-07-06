@@ -1,11 +1,10 @@
 import jwt from 'jsonwebtoken';
-import config from '../config/config';
 
 export class TokenService {
     public async generateAccessToken(payload: any) {
         try {
-            return jwt.sign(payload, config.auth.accessTokenSecret, {
-                expiresIn: config.auth.accessTokenExpiresIn,
+            return jwt.sign(payload, '', {
+                expiresIn: '',
             });
         } catch (error) {
             console.error(error);
@@ -15,8 +14,8 @@ export class TokenService {
 
     public async generateRefreshToken(payload: any) {
         try {
-            return jwt.sign(payload, config.auth.refreshTokenSecret, {
-                expiresIn: config.auth.refreshTokenExpiresIn,
+            return jwt.sign(payload, '', {
+                expiresIn: '',
             });
         } catch (error) {
             console.error(error);
@@ -26,7 +25,7 @@ export class TokenService {
 
     public async verifyAccessToken(token: any) {
         try {
-            return jwt.verify(token, config.auth.accessTokenSecret);
+            return jwt.verify(token, '');
         } catch (error) {
             console.error(error);
             return false
@@ -35,7 +34,7 @@ export class TokenService {
 
     public async verifyRefreshToken(token: any) {
         try {
-            return jwt.verify(token, config.auth.refreshTokenSecret);
+            return jwt.verify(token, '');
         } catch (error) {
             console.error(error);
             return false

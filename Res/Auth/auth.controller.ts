@@ -4,7 +4,6 @@ import { AuthValidator } from './auth.validator';
 import { UserModel } from './auth.model';
 import { Hasher } from '../../Config/bcrypt';
 import { TokenService } from '../../Auth/auth';
-import { ElasticMailService } from '../Mail/elastic.mail';
 import { generateSuccessMail, generateVerifyAccountMail } from './auth.template';
 import { MailService } from '../Mail/mail.services';
 import { analyzeResult, generate } from './ai';
@@ -13,7 +12,7 @@ const authService = new AuthService();
 const authValidator = new AuthValidator();
 const hasher = new Hasher();
 const tokenService = new TokenService();
-const elasticMailService = new ElasticMailService();
+// const elasticMailService = new ElasticMailService();
 const mailService = new MailService()
 
 export class AuthController {
