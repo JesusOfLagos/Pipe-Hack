@@ -27,8 +27,8 @@ Retty.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).json({ message: 'Internal Server Error' });
 });
 connectToMongoDB();
-Retty.listen(config.app.port, () => {
-    console.log(`Server started on port ${config.app.port}`);
+Retty.listen(3000, () => {
+    console.log(`Server started on port ${3000}`);
 })
 
 
