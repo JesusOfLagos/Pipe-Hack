@@ -1,7 +1,6 @@
 import express, { Express, NextFunction, Request, Response } from 'express';
 import cors from 'cors'
 import { connectToMongoDB } from './database';
-import config from './config/config';
 import { Cors } from './Config/cors';
 import { TestRouter } from './test.router';
 import { authRouter } from './Res/Auth/auth.router';
