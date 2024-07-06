@@ -5,7 +5,7 @@ import { UserModel } from './auth.model';
 import { Hasher } from '../../Config/bcrypt';
 import { TokenService } from '../../Auth/auth';
 import { generateSuccessMail, generateVerifyAccountMail } from './auth.template';
-import { MailService } from '../Mail/mail.services';
+// import { MailService } from '../Mail/mail.services';
 import { analyzeResult, generate } from './ai';
 
 const authService = new AuthService();
@@ -13,7 +13,7 @@ const authValidator = new AuthValidator();
 const hasher = new Hasher();
 const tokenService = new TokenService();
 // const elasticMailService = new ElasticMailService();
-const mailService = new MailService()
+// const mailService = new MailService()
 
 export class AuthController {
     public async AnalyseResultData(req: Request, res: Response) {
@@ -139,14 +139,14 @@ export class AuthController {
             // const message = generateVerifyAccountMail(link)
             const subject = 'Welcome To Retty!'
             const message = `Here is your otp. ${otp}`
-            const mailer = await mailService.SendMail(email, subject, message)
-            console.log(mailer)
-            if (!mailer) {
-                return res.status(500).json({
-                    message: "Cannot send email!",
-                    status: 500
-                })
-            }
+            // const mailer = await mailService.SendMail(email, subject, message)
+            // console.log(mailer)
+            // if (!mailer) {
+            //     return res.status(500).json({
+            //         message: "Cannot send email!",
+            //         status: 500
+            //     })
+            // }
             await newUser.save();
             return res.status(201).json({
                 message: 'User registered successfully',
@@ -272,7 +272,7 @@ export class AuthController {
             user.otp = '1'
             user.otpExpiresIn = new Date()
             const message = generateSuccessMail()
-            await mailService.SendMail(email, 'Email Verified Successfully!', message)
+            // await mailService.SendMail(email, 'Email Verified Successfully!', message)
             await user.save()
             return res.status(200).json({
                 message: "Email Verified Successfully!",
