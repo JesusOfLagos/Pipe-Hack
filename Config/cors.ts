@@ -2,7 +2,7 @@ import cors, { CorsOptions } from 'cors';
 
 export class Cors {
     public corsOptions: CorsOptions = {
-        origin: ['*'],
+        origin: ['https://awesome-page-capable-driving-production.pipeops.app'],
         optionsSuccessStatus: 200,
         credentials: true,
         methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH', 'OPTIONS'],
